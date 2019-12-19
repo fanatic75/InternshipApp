@@ -1,7 +1,6 @@
-import React from "react";
+import React, { useRef, useEffect } from "react";
 import { CardImg } from "reactstrap";
-import  Icecream from  "./icecream.webp";
-const Product : React.FC = (props) => {
+const Product : React.FC = (props:any) => {
 
     const productContainerStyle : React.CSSProperties={
         display:"flex",
@@ -11,14 +10,37 @@ const Product : React.FC = (props) => {
         flexWrap:"wrap"
 
     }
+    const productRef = useRef();
+    useEffect(()=>{
 
+        const handleClick=(e:{target:HTMLInputElement}) : void =>{
+            const productRefNode : Node|HTMLElement|undefined|null = productRef.current;
+            
+            if(productRefNode!==undefined && productRefNode !==null){
+                //@ts-ignore
+               if(productRefNode.contains(e.target)){
+                const temp = props.products.slice();
+                temp.map((product:any)=>{
+                    console.log(product);
+                    if(product.name===props.name && product.price===props.price){
+                        product.selected = !product.selected;
+                        props.setProducts(temp);
+                    }
+                })
+               }
+            }
+        }
+        document.addEventListener('click',handleClick as  ()=>  void);
+        return ()=>document.removeEventListener('click',handleClick as ()=>void);
+    })
 
     return ( 
-        <div style={productContainerStyle}>
+        <div ref={productRef as any} style={productContainerStyle}>
 
-            <CardImg style={{ maxWidth:"30%"}} src={Icecream} alt="Ice cream"/>
-            <p style={{marginRight:"20%"}}>Icecream</p>
-            <h3>$3.33</h3>
+            <CardImg style={{ maxWidth:"30%"}} alt={props.image.title} src={props.image.url} />
+                
+            <p style={{marginRight:"20%"}}>{props.name}</p>
+            <h3>${props.price}</h3>
         </div>
 
     )

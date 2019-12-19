@@ -1,3 +1,25 @@
+To start the project 
+
+requirements
+
+node js 8.10.0
+yarn
+
+
+step 1
+Through command terminal, move into the project directory and run command 'yarn install'
+step 2
+To start the project in development mode run command "yarn start"
+
+
+
+
+
+
+
+
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
