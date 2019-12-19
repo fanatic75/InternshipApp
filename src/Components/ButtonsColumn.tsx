@@ -58,6 +58,7 @@ const ButtonsColumns: React.FC = (props: any) => {
     const removeFromCart = (e: any) => {
         let tempArr = [];
         if(props.selectedProducts.length===1){
+            if(props.selectedProducts[0]['selected'])
             props.setSelectedProducts([]);
             return;
         }
