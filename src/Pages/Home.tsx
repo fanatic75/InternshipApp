@@ -1,34 +1,48 @@
 import React from "react";
-import {Navbar, Nav , NavItem, NavLink,Container, Row,Col} from "reactstrap";
+import { Row, Col } from "reactstrap";
+import ButtonsColumns from "../Components/ButtonsColumn";
+import Inventory from "../Components/Inventory";
+const Home: React.FC = () => {
 
-const Home : React.FC = () => {
-    return (
-      <> 
-        <Navbar style={{}} expand = "md">
-            
-                <Nav className="mr-auto" navbar>
-                    
-                <NavItem>
-              <NavLink href="/">Custom Internship Application</NavLink>
-            </NavItem>
-                    
-                    </Nav>    
-
-        </Navbar>
-
-        <main>
-            <Container >
-            <Row >
-        <Col xs="2">.col-3</Col>
-        <Col xs="auto">.col-auto - variable width content</Col>
-        <Col xs="2">.col-3</Col>
-      </Row>
+  const backgroundStyle = {
+    backgroundColor: "#1a173e",
+    minHeight: "100vh"
+  }
 
 
-            </Container>
-            </main>
+
+  return (
+    <>
+
+
+
+      <main style={backgroundStyle}>
+
+
+
+
+
+        <Row style={{ padding: "1%", marginLeft: "0px", marginRight: "0px" }} >
+          <Col >
+    
+    {
+    //@ts-ignore
+    
+            <Inventory cardTitle="Available Options" />
+    }
+          </Col>
+
+          <Col xs="2"><ButtonsColumns /> </Col>
+{
+         //@ts-ignore
+          <Col><Inventory cardTitle="Your Cart" /></Col>
+}
+        </Row>
+
+
+      </main>
     </>
-    );
+  );
 }
 
 export default Home;
