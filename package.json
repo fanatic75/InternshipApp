@@ -27,6 +27,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "build":"react-scripts build",
     "dev": "node server.js",
     "serve": "serve -s build",
     "predeploy": "yarn build",
