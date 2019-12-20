@@ -21,8 +21,10 @@ const Product : React.FC = (props:any) => {
                if(productRefNode.contains(e.target)){
                 const temp = props.products.slice();
                 temp.map((product:any)=>{
-                    console.log(product);
-                    if(product.name===props.name && product.price===props.price){
+                    console.log(e.target.id);
+                    if((product.name===props.name && product.price===props.price && typeof product.id==="string" && product.id===e.target.id )|| (typeof product.id==="number" && product.name===props.name && product.price===props.price) ){
+                        
+                        
                         product.selected = !product.selected;
                         props.setProducts(temp);
                     }
@@ -35,7 +37,7 @@ const Product : React.FC = (props:any) => {
     })
 
     return ( 
-        <div ref={productRef as any} style={productContainerStyle}>
+        <div ref={productRef as any} id={props.id} style={productContainerStyle}>
 
             <CardImg style={{ maxWidth:"30%"}} alt={props.image.title} src={props.image.url} />
                 

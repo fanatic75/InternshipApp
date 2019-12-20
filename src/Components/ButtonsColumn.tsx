@@ -19,21 +19,21 @@ const commonButtonStyle: React.CSSProperties = {
 
 const ButtonsColumns: React.FC = (props: any) => {
 
+     function uuidv4() {
+        return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+          var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
+          return v.toString(16);
+        });
+      }
+      
     const addToCart = (e: any) => {
         let isMessage = true;
         const temp = props.selectedProducts.slice();
         props.products.map((product: any) => {
 
-            if (product.selected && props.selectedProducts.some((item:any)=>item.name===product.name)) {
-              
-                isMessage = false;
-                alert("Product Already Added in the Cart");
-               return;
-
-
-            } else if(product.selected) {
+          if(product.selected) {
                 const { name,price,image }:Product=product;
-                temp.push({id:Date.now(),selected:false,name,price, image});
+                temp.push({id:uuidv4(),selected:false,name,price, image});
                 isMessage = false;
                 console.log(temp);
                 props.setSelectedProducts(temp);
@@ -42,6 +42,8 @@ const ButtonsColumns: React.FC = (props: any) => {
 
 
         });
+
+        //set all products back to unselected
         const tempArr = props.products.slice();
         tempArr.map((product: any) => {
             if (product.selected) {
