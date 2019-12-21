@@ -26,7 +26,7 @@ const Cart: React.FC = (props: any) => {
     return (
 
         <Container >
-            <Card className={props.selectedProducts.length?"":"text-center"} style={{ width: '100%', minHeight: "80vh" }}>
+            <Card className={props.selectedProducts.length?"":"text-center"} style={{ minHeight:"89vh" }}>
                 {
                     props.selectedProducts.length?<Card.Header style={inventoryHeaderStyle}>Your Cart</Card.Header>:null}
                 {
