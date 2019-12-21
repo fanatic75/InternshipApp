@@ -6,7 +6,7 @@ import { Product } from '../types/types';
 const buttonContainerStyle: React.CSSProperties = {
     display: "flex",
     position: "relative",
-    top: "45%",
+    top: "250px",
     flexDirection: "column",
     alignItems: "center"
 }
