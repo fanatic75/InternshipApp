@@ -6,7 +6,7 @@ import { productsData } from "../data/products";
 import Cart from "../Components/Cart";
 import {ReactComponent as Instagram} from "../data/instagram.svg";
 import {ReactComponent as Twitter} from "../data/twitter.svg";
-import {ReactComponent as Wavy} from "../data/wavy1.svg";
+import {ReactComponent as Wavy} from "../data/wavy.svg";
 
 
 import {ReactComponent as Scroll} from "../data/scroll.svg";
